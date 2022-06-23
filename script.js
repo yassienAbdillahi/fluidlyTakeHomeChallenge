@@ -23,14 +23,48 @@ function test(name, testFunction) {
   assertEquals("abc", "abc");
   */
 
-  /* first refactor; to make the same test pass*/
+  /* first refactor; to make the same test pass
   function assertEquals(expect, actual) {
     if(expect === actual) {console.info(`No error`);} 
     else {console.error(`Expected "${expect}" but found "${actual}"`);}
   }
+  */
  
   // "assertEquals logs 'No error' when two identical strings are passed"
   assertEquals("abc", "abc"); 
 
   // "assertEquals throws error with message 'Expected "abc" but found "def"'
   assertEquals("abc", "def");
+
+  // "assertEquals throws error with message 'Expected "abcef" but found "abc"'
+  assertEquals("abcef", "abc");
+
+
+
+  //next need to make sure the fn works for numbers
+
+  //"assertEquals logs 'No error' when two identical numberss are passed"
+  assertEquals(1, 1); //test passes so no refactoring necessary yet
+
+
+  // "assertEquals throws error with message 'Expected 1 but found 2'
+  assertEquals(1, 2); //test throws the error but with slightly wrong message (are the "" important?)
+
+  //assertEquals Throws error with message 'Expected type number but found type string'
+  assertEquals(1, '1'); //wrong error message is thrown so need to refactor
+
+
+  //second refactor to change the error messages
+  function assertEquals(expect, actual) {
+    let a = typeof actual;
+    let e = typeof expect;
+
+    if (a !== e) {
+        if (e === "string") {console.error(`Expected type string but found type ${a}`);}
+        else if (e === "number") {console.error(`Expected type number but found type ${a}`);}
+    }
+
+    else if(expect === actual) {console.info(`No error`);} 
+    else {console.error(`Expected ${expect} but found ${actual}`);}
+  }
+ 

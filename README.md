@@ -4,8 +4,8 @@ An "assertEquals" method to demonstrate problem solving and understanding of Jav
 
 ### To do
 
-- [ ] Fill in the "assertEquals" function provided such that it will correctly compare the "expected" and "actual" parameters.
-- [ ] Ensure the function works for primitive data types (e.g. strings and numbers) and simple arrays
+- [x] Fill in the "assertEquals" function provided such that it will correctly compare the "expected" and "actual" parameters.
+- [x] Ensure the function works for primitive data types (e.g. strings and numbers) and simple arrays
 
 
 ### Example inputs and outputs
